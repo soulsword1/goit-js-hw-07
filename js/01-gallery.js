@@ -24,7 +24,7 @@ function makeGalleryImages(galleryItems) {
 }
 
 function showOriginalImage(e) {
-  if (!e.target.nodeName === "IMAGE") {
+  if (e.target.nodeName !== "IMG") {
     return;
   }
   e.preventDefault();

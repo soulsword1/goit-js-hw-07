@@ -4,18 +4,20 @@ const gallery = document.querySelector(".gallery");
 const galleryImages = makeGalleryImages(galleryItems);
 
 gallery.insertAdjacentHTML("beforeend", galleryImages);
-gallery.addEventListener("click", makeGalleryImages);
 
 function makeGalleryImages(galleryItems) {
   return galleryItems
     .map(
-      ({
-        preview,
-        original,
-        description,
-      }) => `<a class="gallery__item" href="${original}">
-      <img class="gallery__image" src="${preview}" alt="${description}"/>
-    </a>`
+      ({ preview, original, description }) => `<div class="gallery__item">
+        <a class="gallery__link" href="${original}">
+      <img
+        class="gallery__image"
+        src="${preview}"
+        data-source="${original}"
+        alt="${description}"
+      />
+    </a>
+  </div>`
     )
     .join("");
 }
